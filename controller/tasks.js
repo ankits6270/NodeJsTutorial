@@ -5,8 +5,6 @@ const getAllTasks = (req,res)=>{
     res.send("Get all tasks");
 }
 
-
-
 const createTasks = async(req,res)=>{
     try {
         const {name,Completed} = req.body;
