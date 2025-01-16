@@ -1,5 +1,14 @@
 const mongoose = require('mongoose');
 
-const connectionString = "mongodb+srv://ankits6270:1234@cluster0.axnhicp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-mongoose.connect(connectionString);
+const connectDB = (url) =>{
+    mongoose
+    .connect(url,{
+        useNewUrlParser:true,
+        useFindAndModify:false,
+        useCreateIndex:true,
+        useUnifiedTopology:true
+    })
+}
+
+module.exports = connectDB;
