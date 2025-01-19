@@ -52,11 +52,8 @@ const getTasks = async (req, res) => {
 
 const updateTasks = async (req,res)=>{
     try {
-        debugger;
         const {id:taskID} = req.params;
-        const {name,Completed} = req.body;
-        const updatedTask = {name,Completed};
-        const task = await Task.findOneAndUpdate({_id:taskID},updatedTask,{new:true,runValidators:true});
+        const task = await Task.findOneAndUpdate({_id:taskID},req.body,{new:true,runValidators:true});
         if(!task){
             return res.status(404).json({message:'Task not found'})
         }
