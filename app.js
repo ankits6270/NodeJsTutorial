@@ -6,20 +6,11 @@ const connectDB = require('./db/connect');
 require('dotenv').config();
 
 // Middleware to parse JSON requests
+app.use(express.static('./public'));
 app.use(express.json());
 
-// Sample route
-app.get('/', (req, res) => {
-  res.send('Welcome to the Express server!');
-});
-
-// Sample API endpoint
-app.get('/api', (req, res) => {
-  res.json({ message: 'This is an API response!' });
-});
-
+// Routes
 app.use('/api/v1/tasks',tasks);
-
 
 
 
